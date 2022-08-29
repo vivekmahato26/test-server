@@ -30,9 +30,7 @@ const resolvers = {
     students: async (_, args, { req }) => {
       if (req.isAuth) {
         try {
-          const id = new mongoDB.ObjectId(req.userId);
-          const data = await student.find({ _id: id }).toArray();
-
+          const data = await student.find({  }).toArray();
           return data;
         } catch (error) {
           return { err: JSON.stringify(error) };
